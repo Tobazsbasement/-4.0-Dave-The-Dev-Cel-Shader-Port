@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1gf1ipu34ekk"]
+
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_fppyv"]
+[ext_resource type="Shader" path="res://Shaders/cel.gdshader" id="2_uhda5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvxws"]
+render_priority = 0
+shader = ExtResource("1_fppyv")
+shader_parameter/outline_thickness = 0.016
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ngws"]
+next_pass = SubResource("ShaderMaterial_lvxws")
+cull_mode = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_fdwe0"]
+material = SubResource("StandardMaterial3D_2ngws")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rovsf"]
+render_priority = 0
+shader = ExtResource("1_fppyv")
+shader_parameter/outline_thickness = 0.017
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_id1ah"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_rovsf")
+shader = ExtResource("2_uhda5")
+shader_parameter/use_shade = true
+shader_parameter/use_specular = false
+shader_parameter/use_rim = false
+shader_parameter/use_light = true
+shader_parameter/use_shadow = true
+shader_parameter/base_color = Color(0.321569, 0.0745098, 0.00784314, 1)
+shader_parameter/shade_color = Color(0.219608, 0.00784314, 0.0470588, 1)
+shader_parameter/specular_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/rim_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.01
+shader_parameter/specular_glossiness = 15.0
+shader_parameter/specular_threshold = 0.5
+shader_parameter/specular_softness = 0.1
+shader_parameter/rim_threshold = 0.25
+shader_parameter/rim_softness = 0.05
+shader_parameter/rim_spread = 0.5
+shader_parameter/shadow_threshold = 0.7
+shader_parameter/shadow_softness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4rjj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjm6n"]
+render_priority = 0
+shader = ExtResource("1_fppyv")
+shader_parameter/outline_thickness = 0.029
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cek68"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_cjm6n")
+shader = ExtResource("2_uhda5")
+shader_parameter/use_shade = true
+shader_parameter/use_specular = false
+shader_parameter/use_rim = false
+shader_parameter/use_light = true
+shader_parameter/use_shadow = true
+shader_parameter/base_color = Color(0.176471, 0.376471, 0.321569, 1)
+shader_parameter/shade_color = Color(0.0627451, 0.203922, 0.196078, 1)
+shader_parameter/specular_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/rim_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.01
+shader_parameter/specular_glossiness = 15.0
+shader_parameter/specular_threshold = 0.5
+shader_parameter/specular_softness = 0.1
+shader_parameter/rim_threshold = 0.25
+shader_parameter/rim_softness = 0.05
+shader_parameter/rim_spread = 0.5
+shader_parameter/shadow_threshold = 0.7
+shader_parameter/shadow_softness = 0.1
+
+[sub_resource type="PrismMesh" id="PrismMesh_d56ws"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqw6t"]
+render_priority = 0
+shader = ExtResource("1_fppyv")
+shader_parameter/outline_thickness = 0.029
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75wut"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_pqw6t")
+shader = ExtResource("2_uhda5")
+shader_parameter/use_shade = true
+shader_parameter/use_specular = false
+shader_parameter/use_rim = false
+shader_parameter/use_light = true
+shader_parameter/use_shadow = true
+shader_parameter/base_color = Color(0.0901961, 0.243137, 0.501961, 1)
+shader_parameter/shade_color = Color(0.0328801, 0.113827, 0.295312, 1)
+shader_parameter/specular_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/rim_tint = Color(0.75, 0.75, 0.75, 0.75)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.01
+shader_parameter/specular_glossiness = 15.0
+shader_parameter/specular_threshold = 0.5
+shader_parameter/specular_softness = 0.1
+shader_parameter/rim_threshold = 0.25
+shader_parameter/rim_softness = 0.05
+shader_parameter/rim_spread = 0.5
+shader_parameter/shadow_threshold = 0.7
+shader_parameter/shadow_softness = 0.1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_fdwe0")
+surface_material_override/0 = SubResource("ShaderMaterial_id1ah")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1975, 0, 0)
+mesh = SubResource("BoxMesh_g4rjj")
+surface_material_override/0 = SubResource("ShaderMaterial_cek68")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4775, 0, 0)
+mesh = SubResource("PrismMesh_d56ws")
+surface_material_override/0 = SubResource("ShaderMaterial_75wut")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.956062, 0.15007, 0.251843, -0.25, 0.866025, 0.433013, -0.15312, -0.476948, 0.865491, 0, 0, 2.22915)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.985178, 0.171534, 0, -0.171534, 0.985178, 0, 1.29203, 2.68147)
