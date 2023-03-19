@@ -51,3 +51,5 @@ Additional Notes:
     A lot of the ideas behind the way this shader works was inspired by Junya C Motomura's 2015 GDC talk linked here and this article by RoyStan linked here.
 
 I can be reached at: davidlipps.dev@gmail.com I'd love to hear your thoughts. Especially about how I can improve. I'll do my best to get back to you.
+
+![Screenshot (225)](https://user-images.githubusercontent.com/116190811/226172683-03745f22-4abb-4510-aebf-fa242e75c2c0.png)
